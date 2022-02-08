@@ -268,7 +268,7 @@ window.msgs.innerHTML="<h1>"+LoadedMSG+"</h1>";
 
 
 function toogle_payload(){
-var PLfile = "goldhen2.1.bin";
+var PLfile = "goldhen21.bin";
 var req = new XMLHttpRequest();
 req.responseType = "arraybuffer";
 req.open("GET",PLfile,true);
@@ -279,6 +279,8 @@ if (req.readyState == 4){
   tmp0.set(new Uint8Array(req.response), 0);
   var payload = new Uint32Array(tmp0);
   ghPL = payload;
+	msgs.innerHTML="Carregando GoldHEN v2.0b V2... Aguarde !!";
+LoadedMSG="GoldHEN v2.0b V2 Carregado.. Aperte OK após erro de Memória !";
   setTimeout(poc, 400);
   }
 };
