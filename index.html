@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html manifest="Cache.manifest"><head>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+ 
 <title>GEOVANE FORMATAÇÕES E DESBLOQUEIO PS4 9.00</title>
+
+    
+
 <style>
 html, body {
 background-image: url('background.jpg');
@@ -130,15 +141,11 @@ color: white;
 
 }
  .content {
-  width:80%;
-  margin-left:10%;
-  background:rgba(0,0,0,0.5);
-  color:white;
   margin-top:5%;
   font-size:95px;
   text-align:center;
   border-radius:10px;
-  padding:20px;
+  padding:200px;
   line-height:35px;
  }
 
@@ -148,19 +155,34 @@ color: white;
 <script src="rop.js"></script>
 <script src="kexploit.js"></script>
 <script src="webkit.js"></script>
+
+
+
+
+
+
 </head>
 <body>
+
+
+
+
+
+
+
 <script>
 function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Instalando Cache Offline: " + Percent + "%";}
 function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cache instalado com sucesso ✔";},1000);setTimeout(function(){window.msgs.innerHTML="Agora feche e abra novamente o seu navegador ...";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
 </script>
-<h1 id="msgs" style="font-family:verdana;color:#2092e3;">GEOVANE FORMATAÇÕES E DESBLOQUEIO PS4 9.00</h1>
+<h1 id="msgs" style="font-family:verdana;color:#2092e3;">GEOVANE FORMATAÇÕES E DESBLOQUEIO PS4</h1>
 <hr>
 <h1 style="font-family:verdana;font-size:20px;color:white;">PAYLOADS PRINCIPAIS</h1>
+<button class="btn btn-golden" onclick=toogle_payload()>GoldHEN 2.1 Bin</button>
 <button class="btn btn-golden" onclick=load_goldhen2()>GoldHEN 2.1</button>
 <button class="btn btn-golden" onclick=load_goldhen2b2()>GoldHEN 2.0b2</button>
 <button class="btn btn-hax" onclick=load_binloader()>Bin Loader</button>
 <!--button class="btn btn-hax" onclick=load_mira()>MiraLoader</button-->
+
 <br>
 <h1 style="font-family:verdana;font-size:20px;text-align:center;">PAYLOADS</h1>
 <button class="btn" onclick=load_todex() onMouseOver="msgs.innerHTML='Desbloqueia alguns recursos de depuração disponíveis no Devkit'"; onmouseout="msgs.innerHTML='PS4 9.00 DEVSPARDA'";>ToDex</button>
@@ -193,12 +215,41 @@ function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Cac
 <div class="content" >
 
 
-&nbsp;&nbsp; <span class="hue" >GEOVANE FORMATAÇÕES DESBLOQUEIO DE PS4 9.00</span>
+&nbsp;&nbsp; <span class="hue" style="font-size:45px" >GEOVANE FORMATAÇÕES DESBLOQUEIO DE PS4</span>
  	</div> 	</div>
-<hr style="margin-top: 40px;">
+<hr style="margin-top: 30px;">
 
+<div class="container">
+        <div class="display">
+          <div class="hours">
+            <div class="time">
+              <span>00</span>
+            </div> <!--Time-->
+            <div class="text">
+              <span>HORAS</span>
+            </div> <!--Text-->
+          </div> <!--Hours-->
+          <div class="minutes">
+            <div class="time">
+              <span>00</span>
+            </div> <!--Time-->
+            <div class="text">
+              <span>MINUTOS</span>
+            </div> <!--Text-->
+          </div> <!--Minutes-->
+          <div class="seconds">
+            <div class="time secondary">
+              <span>00</span>
+            </div> <!--Time-->
+            <div class="text secondary">
+              <span>SEGUNDOS</span>
+            </div> <!--Text-->
+          </div> <!--Seconds-->
+        </div> <!--Display-->
+    </div> <!--Container-->
 
-<h1 style="margin-top: 55px;color: yellow;">Agradecimentos especiais a:<a href="https://www.facebook.com/geovane.formatacao.5" style="color:#f31414; margin-left: 15px;">@Geovane Formações</a></h1>
+    <script src="script.js"></script>
+
 <script>
 for(var i=40; i<=79; i++){
     var select = document.getElementById("tempC");
@@ -214,6 +265,25 @@ function allset() {
 setTimeout(function(){document.location.href = 'index.html';},3000);
 window.msgs.innerHTML="<h1>"+LoadedMSG+"</h1>";
 }
+
+
+function toogle_payload(){
+var PLfile = "goldhen2.1.bin";
+var req = new XMLHttpRequest();
+req.responseType = "arraybuffer";
+req.open("GET",PLfile,true);
+req.send();
+req.onreadystatechange=function(){
+if (req.readyState == 4){
+  var tmp0 = new Uint8Array(req.response.byteLength);
+  tmp0.set(new Uint8Array(req.response), 0);
+  var payload = new Uint32Array(tmp0);
+  ghPL = payload;
+  setTimeout(poc, 400);
+  }
+};
+}
+
 
 function awaitpl(){
 setTimeout(location.reload,1000);
